@@ -1,0 +1,38 @@
+# jwt configuration
+jwt:
+  signing-key: 'wwengg'
+  expires-time: 604800
+  buffer-time: 86400
+
+# zap logger configuration
+zap:
+  level: 'info'
+  format: 'console'
+  prefix: '[rainbow]'
+  director: 'log'
+  link-name: 'latest_log'
+  show-line: true
+  encode-level: 'LowercaseColorLevelEncoder'
+  stacktrace-key: 'stacktrace'
+  log-in-console: true
+
+rpcx:
+  base-path: 'rpcx'
+  addr: '127.0.0.1:8889'
+  network: 'tcp'
+  register: "etcdv3"
+
+etcd-v3:
+  addr:
+    - "127.0.0.1:23791"
+    - "127.0.0.1:23792"
+    - "127.0.0.1:23793"
+
+redis:
+  addr: ["127.0.0.1:6379"]
+  db: 0
+
+http-gateway:
+  env: "dev"
+  addr: 8888
+
