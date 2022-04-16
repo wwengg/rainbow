@@ -93,6 +93,9 @@ func Http2Rpcx(c *gin.Context) {
 	req.ServiceMethod = args.Method
 	xc, err := rpcx.RpcxClientsObj.GetXClient(args.Service)
 
+	if args.Data == nil {
+		args.Data = []byte{0}
+	}
 	req.Payload = args.Data
 
 	ctx := context.WithValue(context.Background(), share.ReqMetaDataKey, nil)
